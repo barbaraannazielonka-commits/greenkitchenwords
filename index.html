@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Green Kitchen Words</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3e7;--card:#fff;--ink:#14281c;--mut:#506556;--g:#1f7a4c;--gd:#0f3d2a;--y:#f4cf47;--ok:#cfeed8;--bad:#f8d6d0;--ln:#c4d3bd;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a14;--card:#182720;--ink:#e8f1e6;--mut:#a3b8a8;--g:#4cc088;--gd:#0a2217;--ok:#1d4a33;--bad:#5a2a24;--ln:#2c4236;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1a14;--card:#182720;--ink:#e8f1e6;--mut:#a3b8a8;--g:#4cc088;--gd:#0a2217;--ok:#1d4a33;--bad:#5a2a24;--ln:#2c4236;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.55 'Atkinson Hyperlegible',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Georgia,serif;margin:.2em 0}
+header{background:#12301f;color:#f3f1e4;padding:1.4rem 1rem 1rem;border-bottom:6px solid var(--y);text-align:center}
+header h1{font-size:clamp(1.9rem,6vw,3rem);font-weight:800;letter-spacing:.01em}
+header p{margin:.2rem 0 .8rem;color:#cfe3d0}
+.lv{display:inline-flex;gap:.5rem}
+.lv button{border:2px solid #f3f1e4;background:transparent;color:#f3f1e4;border-radius:2rem;padding:.4rem 1.1rem;font:inherit;font-weight:700;cursor:pointer}
+.lv button.on{background:var(--y);border-color:var(--y);color:#14281c}
+#pr{margin-top:.7rem;font-size:.95rem}
+.bar{height:8px;background:#ffffff30;border-radius:6px;max-width:320px;margin:.3rem auto 0;overflow:hidden}.bar i{display:block;height:100%;background:var(--y);width:0;transition:width .3s}
+nav{display:flex;gap:.4rem;overflow-x:auto;padding:.7rem 1rem;max-width:960px;margin:auto}
+nav button{flex:none;border:2px solid var(--ln);background:var(--card);color:var(--ink);border-radius:.7rem;padding:.45rem .8rem;font:inherit;cursor:pointer}
+nav button.on{background:var(--g);border-color:var(--g);color:#fff;font-weight:700}
+main{max-width:960px;margin:auto;padding:0 1rem 2rem}
+.ins{background:var(--card);border-left:5px solid var(--y);padding:.6rem .9rem;border-radius:.4rem}.ins i{color:var(--mut)}
+.btn{border:0;background:var(--g);color:#fff;border-radius:.6rem;padding:.55rem 1.1rem;font:inherit;font-weight:700;cursor:pointer;margin:.2rem}
+.btn.alt{background:var(--card);color:var(--ink);border:2px solid var(--ln)}.btn:disabled{opacity:.4;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.sc{color:var(--mut);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.7rem}
+.card{background:var(--card);border:2px solid var(--ln);border-radius:.8rem;padding:.8rem;cursor:pointer;position:relative;min-height:90px}
+.card b{font-family:'Bricolage Grotesque',serif;font-size:1.25rem;display:block;padding-right:2rem}.card span{display:none;margin-top:.4rem}.card.open span{display:block}.card em{display:block;color:var(--g);font-weight:700}
+.spk{position:absolute;right:.4rem;top:.4rem;border:0;background:none;font-size:1.2rem;cursor:pointer}
+.two{display:grid;grid-template-columns:1fr 1.4fr;gap:.8rem}
+.it{display:block;width:100%;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--ln);border-radius:.6rem;padding:.6rem .8rem;margin:.35rem 0;font:inherit;cursor:pointer}
+.it.sel{border-color:var(--y);background:#f4cf4733}.it.ok{background:var(--ok);border-color:var(--g)}.it.bad{background:var(--bad);border-color:#c8402f}
+.sent{font-size:1.3rem;background:var(--card);padding:.8rem;border-radius:.6rem}.gap{border-bottom:3px solid var(--g);padding:0 1rem}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem}
+.cwrap{overflow-x:auto;padding:.5rem 0}.cg{display:grid;gap:2px;width:max-content}
+.cx{position:relative;width:2.1rem;height:2.1rem;background:var(--card);border:2px solid var(--g)}.cx0{width:2.1rem;height:2.1rem}
+.cx small{position:absolute;left:2px;top:0;font-size:.6rem;color:var(--mut);pointer-events:none}
+.cx input{width:100%;height:100%;border:0;background:transparent;text-align:center;font:700 1.1rem 'Atkinson Hyperlegible',sans-serif;color:var(--ink);padding:0;text-transform:uppercase}
+.cx.ok{background:var(--ok)}.cx.bad{background:var(--bad)}
+.clues{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}.clues ul{list-style:none;padding:0;margin:0}.clues li{margin:.3rem 0}
+.mz{display:grid;grid-template-columns:repeat(7,1fr);max-width:420px;margin:.6rem auto;gap:2px;background:var(--gd);padding:4px;border-radius:.6rem}
+.mc{aspect-ratio:1;background:#e9f3df;display:grid;place-items:center;font-size:1.5rem;border-radius:3px}.mc.w{background:#1f7a4c}
+.pad{text-align:center}.pad div{display:flex;justify-content:center}.pad .btn{min-width:3.4rem}
+.qb{max-width:520px;margin:auto;background:var(--card);padding:.8rem;border-radius:.7rem;border:2px solid var(--y)}
+.cn{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}.cn .it{text-align:center;padding:.7rem .3rem;font-size:.95rem;margin:0}
+.grp{padding:.6rem;border-radius:.6rem;margin:.4rem 0;text-align:center;color:#14281c}.g0{background:#f4cf47}.g1{background:#9fdca6}.g2{background:#8fc9f0}.g3{background:#f0b4d0}
+.done{text-align:center;background:var(--card);border:2px solid var(--g);border-radius:.8rem;padding:1rem;margin:1rem 0}.done b{font:800 2.2rem 'Bricolage Grotesque',serif}
+.rt{width:100%;border-collapse:collapse;background:var(--card)}.rt td{padding:.6rem;border-bottom:1px solid var(--ln)}.rt .tot td{font-weight:700;background:var(--ok)}
+footer{text-align:center;color:var(--mut);padding:1rem;font-size:.9rem}
+@media(max-width:600px){.two{grid-template-columns:1fr}.cn .it{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<header><h1>Green Kitchen Words</h1><p>Today’s special: the language of green restaurants</p>
+<div class="lv"><button id="bA2" class="on">Level A2</button><button id="bB2">Level B2</button></div>
+<div id="pr"></div><div class="bar"><i id="pb"></i></div></header>
+<nav id="tabs" aria-label="Tasks"></nav><main id="main"></main>
+<footer>Nannestad High School · Barbara Anna Zielonka</footer>
+<script>
+const $=s=>document.querySelector(s),M=$('#main');
+const sh=a=>{a=[...a];for(let i=a.length;i>1;){const j=Math.random()*i--|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let lv='A2';const S={A2:{},B2:{}},ACT=['match','listen','cross','maze','connect'],P={};
+const T={words:['🥬','Words'],match:['🔗','Match'],listen:['🎧','Listen'],cross:['✏️','Crossword'],maze:['🧭','Maze'],connect:['🧩','Connections'],results:['🏆','Results']};
+const INS={match:['Click a word, then click its meaning. Find all 8 pairs.','Trykk på et ord, og så på betydningen. Finn alle 8 parene.'],listen:['Press Play and listen. Choose the missing word.','Trykk Play og lytt. Velg ordet som mangler.'],cross:['Use the clues to fill in the grid. Then press Check.','Bruk hintene til å fylle ut rutenettet. Trykk så Check.'],maze:['Walk to the plate with the arrow buttons or your keyboard. Answer the question at each door.','Gå til tallerkenen med pilknappene eller tastaturet. Svar på spørsmålet ved hver dør.'],connect:['Find four groups of four words that belong together. You can make 4 mistakes.','Finn fire grupper med fire ord som hører sammen. Du kan gjøre 4 feil.']};
+const D={A2:{
+vocab:[['local','from the area near you','lokal'],['organic','grown without chemicals','økologisk'],['waste','things you throw away','avfall'],['recycle','use again to make something new','gjenvinne'],['compost','old food that turns into soil','kompost'],['energy','power for light and heat','energi'],['solar','using power from the sun','sol-'],['farm','a place where food grows','gård'],['menu','a list of dishes in a restaurant','meny'],['reduce','make smaller or use less','redusere'],['leftovers','food that nobody ate','rester'],['season','a time of the year, like summer','årstid']],
+listen:[['Our restaurant buys ___ vegetables from a farm near here.','local',['local','solar','plastic']],['We put old food in the ___ bin.','compost',['compost','energy','menu']],['Please ___ the glass and the paper.','recycle',['recycle','reduce','organic']],['The kitchen uses ___ panels to make hot water.','solar',['solar','local','farm']],['We make a new ___ every season.','menu',['menu','waste','farm']]],
+cw:['organic','recycle','compost','local','energy','waste','farm','menu'],
+maze:[['What does recycle mean?',['Use again to make something new','Throw it in the sea','Buy more things'],0],['Local food comes from…',['Another country','Near your restaurant','A factory far away'],1],['How can a kitchen reduce waste?',['Cook too much food','Throw away leftovers','Cook only what you need'],2]],
+con:[['Green actions',['recycle','reuse','reduce','save']],['Energy',['solar','wind','electricity','gas']],['Food words',['organic','local','seasonal','fresh']],['Waste',['leftovers','plastic','compost','bin']]]},
+B2:{
+vocab:[['sustainable','able to continue without harming the environment'],['carbon footprint','the total greenhouse gases caused by a business or activity'],['biodegradable','able to break down naturally'],['surplus','extra food or goods left over beyond what is needed'],['greenwashing','pretending to be greener than you really are'],['supplier','a company or person that provides goods to a business'],['landfill','a site where rubbish is buried'],['plant-based','made mainly from vegetables, grains or fruit'],['certified','officially approved as meeting a standard'],['energy-efficient','using less power to do the same job'],['emissions','gases released into the air, for example from transport'],['fair trade','a system that gives producers a fair price'],['compostable','able to turn into soil when it is thrown away'],['net zero','adding no more greenhouse gases than are removed']],
+listen:[['All our fish comes from a ___ supplier.','certified',['certified','surplus','plant-based']],['We donate ___ food instead of throwing it away.','surplus',['surplus','sustainable','certified']],['Switching to LED lights makes the kitchen more ___.','energy-efficient',['energy-efficient','biodegradable','plant-based']],['Our takeaway boxes are ___, so they break down in nature.','biodegradable',['biodegradable','sustainable','certified']],['A restaurant that only pretends to be green is guilty of ___.','greenwashing',['greenwashing','landfill','emissions']]],
+cw:['sustainable','biodegradable','supplier','surplus','landfill','certified','emissions'],
+maze:[['Which is an example of greenwashing?',['A certified eco label','A green logo with no real proof','A published emissions report'],1],['Why do chefs use surplus ingredients?',['To cut food waste and costs','To raise their carbon footprint','To avoid suppliers'],0],['Why can plant-based dishes help a green menu?',['They are always cheap','They need no cooking','They often have a smaller carbon footprint'],2]],
+con:[['Waste and materials',['landfill','surplus','biodegradable','compostable']],['Climate',['emissions','carbon footprint','net zero','global warming']],['Sourcing',['supplier','fair trade','locally sourced','certified']],['Green kitchen ideas',['zero waste','plant-based','energy-efficient','seasonal menu']]]}};
+const say=(t,r=.9)=>{if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=r;speechSynthesis.speak(u)};
+const no=a=>lv=='A2'?`<br><i>${INS[a][1]}</i>`:'';
+const head=a=>`<h2>${T[a][0]} ${T[a][1]}</h2><p class="ins">${INS[a][0]}${no(a)}</p>`;
+const msg=r=>r==1?'Perfect! Chef’s kiss.':r>=.7?'Very good work.':'Good try. Practise and try again.';
+const nxt=a=>ACT[ACT.indexOf(a)+1]||'results';
+const end=(a,s,m)=>`<div class="done"><b>${s} / ${m}</b><p>${msg(s/m)}</p><button class="btn alt" onclick="P.${a}()">Try again</button><button class="btn" onclick="go('${nxt(a)}')">Next</button></div>`;
+const fin=(a,s,m)=>{S[lv][a]=[s,m];prog()};
+const prog=()=>{const n=Object.keys(S[lv]).length;$('#pr').textContent=`${n} of 5 tasks done`;$('#pb').style.width=n*20+'%'};
+function go(t){document.onkeydown=null;if('speechSynthesis' in window)speechSynthesis.cancel();document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));P[t]();window.scrollTo(0,0)}
+function setLv(x){lv=x;$('#bA2').classList.toggle('on',x=='A2');$('#bB2').classList.toggle('on',x=='B2');prog();go('words')}
+$('#tabs').innerHTML=Object.keys(T).map(t=>`<button data-t="${t}">${T[t][0]} ${T[t][1]}</button>`).join('');
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>go(b.dataset.t));
+$('#bA2').onclick=()=>setLv('A2');$('#bB2').onclick=()=>setLv('B2');
+
+P.words=()=>{const v=D[lv].vocab;M.innerHTML=`<h2>🥬 Words</h2><p class="ins">Tap a card to see the meaning. Press 🔊 to hear the word.${lv=='A2'?'<br><i>Trykk på et kort for å se betydningen. Trykk 🔊 for å høre ordet.</i>':''}</p><div class="cards">${v.map(x=>`<div class="card" tabindex="0" role="button"><button class="spk" data-w="${x[0]}" aria-label="Hear ${x[0]}">🔊</button><b>${x[0]}</b><span>${x[1]}${x[2]?`<em>${x[2]}</em>`:''}</span></div>`).join('')}</div>`;
+M.querySelectorAll('.card').forEach(c=>{c.onclick=e=>{const s=e.target.closest('.spk');s?say(s.dataset.w):c.classList.toggle('open')};c.onkeydown=e=>{if(e.key=='Enter')c.classList.toggle('open')}})};
+
+P.match=()=>{const v=D[lv].vocab.slice(0,8),n=8,ok=new Set(),L=sh([...v.keys()]),R=sh([...v.keys()]);let sel=null,m=0;
+const col=(a,k)=>a.map(i=>`<button class="it ${ok.has(i)?'ok':''} ${sel&&sel[0]==k&&sel[1]==i?'sel':''}" data-k="${k}" data-i="${i}">${v[i][k]}</button>`).join('');
+const draw=()=>{M.innerHTML=head('match')+`<p class="sc">Mistakes: ${m}</p><div class="two"><div>${col(L,0)}</div><div>${col(R,1)}</div></div>`;
+M.querySelectorAll('.it').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,i=+b.dataset.i;if(ok.has(i))return;
+if(!sel||sel[0]==k)sel=[k,i];else if(sel[1]==i){ok.add(i);sel=null}else{m++;sel=null}
+if(ok.size==n){const s=Math.max(0,n-m);fin('match',s,n);M.innerHTML=head('match')+end('match',s,n);return}draw()})};draw()};
+
+P.listen=()=>{const Q=D[lv].listen;let i=0,s=0;
+const show=()=>{if(i>=Q.length){fin('listen',s,Q.length);M.innerHTML=head('listen')+end('listen',s,Q.length);return}
+const [t,a,o]=Q[i];let tried=0;
+M.innerHTML=head('listen')+`<p class="sc">Question ${i+1} of ${Q.length}</p><button class="btn" id="p1">▶ Play</button><button class="btn alt" id="p2">🐢 Slow</button><p class="sent">${t.replace('___','<span class="gap">&nbsp;&nbsp;&nbsp;&nbsp;</span>')}</p><div class="opts">${sh(o).map(x=>`<button class="it">${x}</button>`).join('')}</div><p id="fb"></p>`;
+$('#p1').onclick=()=>say(t.replace('___',a),.9);$('#p2').onclick=()=>say(t.replace('___',a),.6);
+M.querySelectorAll('.opts .it').forEach(b=>b.onclick=()=>{if(b.textContent==a){if(!tried)s++;b.classList.add('ok');M.querySelectorAll('.opts .it').forEach(x=>x.disabled=true);$('#fb').innerHTML='Correct! <button class="btn" id="nx">Next</button>';$('#nx').onclick=()=>{i++;show()}}else{tried=1;b.classList.add('bad');b.disabled=true}})};show()};
+
+P.cross=()=>{const d=D[lv],V=Object.fromEntries(d.vocab.map(x=>[x[0],x[1]])),W=[...d.cw].sort((a,b)=>b.length-a.length).map(w=>w.toUpperCase()),g=new Map(),dm=new Set(),pl=[];
+const at=(r,c)=>g.get(r+','+c);
+const fit=(w,r,c,h)=>{const dr=h?0:1,dc=h?1:0;let x=0;if(at(r-dr,c-dc)||at(r+dr*w.length,c+dc*w.length))return 0;
+for(let i=0;i<w.length;i++){const R=r+dr*i,C=c+dc*i,e=at(R,C);if(e){if(e!=w[i]||dm.has(R+','+C+','+h))return 0;x++}else if(at(R+dc,C+dr)||at(R-dc,C-dr))return 0}return x};
+const put=(w,r,c,h)=>{for(let i=0;i<w.length;i++){const R=r+(h?0:i),C=c+(h?i:0);g.set(R+','+C,w[i]);dm.add(R+','+C+','+h)}pl.push({w,r,c,h})};
+put(W[0],0,0,1);
+W.slice(1).forEach(w=>{for(let r=-14;r<16;r++)for(let c=-14;c<16;c++)for(const h of[0,1])if(fit(w,r,c,h)){put(w,r,c,h);return}});
+const mr=Math.min(...pl.map(p=>p.r)),mc=Math.min(...pl.map(p=>p.c));pl.forEach(p=>{p.r-=mr;p.c-=mc});
+const H=Math.max(...pl.map(p=>p.r+(p.h?1:p.w.length))),Wd=Math.max(...pl.map(p=>p.c+(p.h?p.w.length:1))),cell={},num={};let n=0;
+pl.sort((a,b)=>a.r-b.r||a.c-b.c).forEach(p=>{const k=p.r+','+p.c;if(!num[k])num[k]=++n;p.n=num[k];for(let i=0;i<p.w.length;i++)cell[(p.r+(p.h?0:i))+','+(p.c+(p.h?i:0))]=p.w[i]});
+let gh='';for(let r=0;r<H;r++)for(let c=0;c<Wd;c++){const k=r+','+c;gh+=cell[k]?`<div class="cx">${num[k]?`<small>${num[k]}</small>`:''}<input maxlength="1" data-k="${k}" aria-label="Row ${r+1}, column ${c+1}" autocomplete="off"></div>`:'<div class="cx0"></div>'}
+const cl=h=>pl.filter(p=>p.h==h).map(p=>`<li><b>${p.n}.</b> ${V[p.w.toLowerCase()]} (${p.w.length} letters)</li>`).join('');
+M.innerHTML=head('cross')+`<div class="cwrap"><div class="cg" style="grid-template-columns:repeat(${Wd},2.1rem)">${gh}</div></div><div class="clues"><div><h3>Across</h3><ul>${cl(1)}</ul></div><div><h3>Down</h3><ul>${cl(0)}</ul></div></div><button class="btn" id="ck">Check</button><p id="fb"></p>`;
+const inp=[...M.querySelectorAll('.cg input')],by={};inp.forEach(i=>by[i.dataset.k]=i);
+inp.forEach(i=>i.oninput=()=>{i.value=i.value.toUpperCase().replace(/[^A-Z]/g,'');if(!i.value)return;const[r,c]=i.dataset.k.split(',').map(Number);
+if(pl.some(p=>p.h&&p.r==r&&c>=p.c&&c+1<p.c+p.w.length))by[r+','+(c+1)].focus();else if(pl.some(p=>!p.h&&p.c==c&&r>=p.r&&r+1<p.r+p.w.length))by[(r+1)+','+c].focus()});
+$('#ck').onclick=()=>{let s=0;inp.forEach(i=>i.parentNode.classList.remove('ok','bad'));
+pl.forEach(p=>{const ks=[...p.w].map((ch,i)=>(p.r+(p.h?0:i))+','+(p.c+(p.h?i:0)));if(ks.every((k,i)=>by[k].value==p.w[i])){s++;ks.forEach(k=>by[k].parentNode.classList.add('ok'))}});
+inp.forEach(i=>{if(i.value&&i.value!=cell[i.dataset.k])i.parentNode.classList.add('bad')});
+fin('cross',s,pl.length);$('#fb').innerHTML=`<b>${s} of ${pl.length} words correct.</b> ${s==pl.length?'Excellent! '+`<button class="btn" onclick="go('maze')">Next</button>`:'Fix the red letters and check again.'}`}};
+
+P.maze=()=>{const q=D[lv].maze,Mz=['#######','#S#.G.#','#.#.#.#','#.G.#.#','###.#G#','#...#E#','#######'].map(r=>[...r]),gi={'3,2':0,'1,4':1,'4,5':2},tr={};
+let p=[1,1],sc=0,open=null;
+const mv=(dy,dx)=>{if(open)return;const y=p[0]+dy,x=p[1]+dx,ch=Mz[y][x];if(ch=='#')return;if(ch=='G'){open=[y,x];draw();return}p=[y,x];
+if(ch=='E'){fin('maze',sc,3);M.innerHTML=head('maze')+end('maze',sc,3);document.onkeydown=null;return}draw()};
+const draw=()=>{const k=open?gi[open.join()]:0;
+M.innerHTML=head('maze')+`<p class="sc">Doors opened first try: ${sc} / 3</p><div class="mz">${Mz.map((r,y)=>r.map((ch,x)=>`<div class="mc ${ch=='#'?'w':''}">${y==p[0]&&x==p[1]?'🧑‍🍳':ch=='G'?'🚪':ch=='E'?'🍽️':''}</div>`).join('')).join('')}</div>`+
+(open?`<div class="qb"><p><b>🚪 ${q[k][0]}</b></p>${q[k][1].map((o,j)=>`<button class="it" data-j="${j}">${o}</button>`).join('')}</div>`:`<div class="pad"><button class="btn" data-d="-1,0" aria-label="Up">▲</button><div><button class="btn" data-d="0,-1" aria-label="Left">◀</button><button class="btn" data-d="1,0" aria-label="Down">▼</button><button class="btn" data-d="0,1" aria-label="Right">▶</button></div></div>`);
+M.querySelectorAll('.pad .btn').forEach(b=>b.onclick=()=>mv(...b.dataset.d.split(',').map(Number)));
+M.querySelectorAll('.qb .it').forEach(b=>b.onclick=()=>{if(+b.dataset.j==q[k][2]){if(!tr[k])sc++;Mz[open[0]][open[1]]='.';p=open;open=null;draw()}else{tr[k]=1;b.classList.add('bad');b.disabled=true}})};
+document.onkeydown=e=>{const m={ArrowUp:[-1,0],ArrowDown:[1,0],ArrowLeft:[0,-1],ArrowRight:[0,1]}[e.key];if(m){e.preventDefault();mv(...m)}};draw()};
+
+P.connect=()=>{const G=D[lv].con,tiles=sh(G.flatMap((g,i)=>g[1].map(w=>[w,i])));let found=[],sel=[],mis=0,note='';
+const fin2=()=>{const s=found.length;fin('connect',s,4);M.innerHTML=head('connect')+G.map((g,i)=>`<div class="grp g${i}"><b>${g[0]}</b><br>${g[1].join(', ')}</div>`).join('')+end('connect',s,4)};
+const draw=()=>{const rem=tiles.filter(t=>!found.includes(t[1]));
+M.innerHTML=head('connect')+`<p class="sc">Mistakes left: ${4-mis}</p>`+found.map(i=>`<div class="grp g${i}"><b>${G[i][0]}</b><br>${G[i][1].join(', ')}</div>`).join('')+`<div class="cn">${rem.map(t=>`<button class="it ${sel.includes(t[0])?'sel':''}" data-w="${t[0]}">${t[0]}</button>`).join('')}</div><p><button class="btn" id="sb" ${sel.length==4?'':'disabled'}>Submit</button><button class="btn alt" id="ds">Deselect all</button> ${note}</p>`;
+M.querySelectorAll('.cn .it').forEach(b=>b.onclick=()=>{const w=b.dataset.w;sel=sel.includes(w)?sel.filter(x=>x!=w):sel.length<4?[...sel,w]:sel;note='';draw()});
+$('#ds').onclick=()=>{sel=[];note='';draw()};
+$('#sb').onclick=()=>{const gr=sel.map(w=>tiles.find(t=>t[0]==w)[1]),c=Math.max(...[0,1,2,3].map(i=>gr.filter(x=>x==i).length));
+if(c==4){found.push(gr[0]);note=''}else{mis++;note=c==3?'One word away!':'Not a group. Try again.'}sel=[];
+if(found.length==4||mis>=4)fin2();else draw()}};draw()};
+
+P.results=()=>{const dn=ACT.filter(a=>S[lv][a]),tot=dn.reduce((x,a)=>x+S[lv][a][0],0),mx=dn.reduce((x,a)=>x+S[lv][a][1],0);
+M.innerHTML=`<h2>🏆 Results (Level ${lv})</h2><table class="rt">${ACT.map(a=>`<tr><td>${T[a][0]} ${T[a][1]}</td><td>${S[lv][a]?S[lv][a][0]+' / '+S[lv][a][1]:'Not done yet'}</td></tr>`).join('')}<tr class="tot"><td>Total</td><td>${tot} / ${mx}</td></tr></table>`+(dn.length==5?`<div class="done"><b>${Math.round(tot/mx*100)} percent</b><p>All tasks finished! ${msg(tot/mx)} Now try the other level.</p></div>`:'<p>Finish all 5 tasks to see your final result.</p>')};
+setLv('A2');
+</script></body></html>
